@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/container_fragment"
+    tools:context=".ui.diagnosa.DiagnosaFragment">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fullname"
+        style="@style/Textfield"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="32dp"
+        android:hint="@string/fullname"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/address"
+        style="@style/Textfield"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/address"
+        app:layout_constraintLeft_toLeftOf="@id/fullname"
+        app:layout_constraintRight_toRightOf="@id/fullname"
+        app:layout_constraintTop_toBottomOf="@id/fullname">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/age"
+        style="@style/Textfield"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/usia"
+        app:layout_constraintLeft_toLeftOf="@id/address"
+        app:layout_constraintTop_toBottomOf="@id/address">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/kesadaran"
+        style="@style/Textfield"
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        app:endIconMode="dropdown_menu"
+        android:hint="@string/kesadaran"
+        app:layout_constraintBottom_toBottomOf="@id/age"
+        app:layout_constraintLeft_toRightOf="@id/age"
+        app:layout_constraintRight_toRightOf="@id/address"
+        app:layout_constraintTop_toTopOf="@id/age"
+        tools:ignore="RtlSymmetry">
+
+        <AutoCompleteTextView
+            android:id="@+id/kesadaran_autocomplete"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="none"
+            android:paddingStart="12dp"
+            tools:ignore="LabelFor" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/perfanasan"
+        style="@style/Textfield"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/pernafasan_menit"
+        app:layout_constraintLeft_toLeftOf="@id/age"
+        app:layout_constraintRight_toRightOf="@id/kesadaran"
+        app:layout_constraintTop_toBottomOf="@id/age"
+        app:suffixText="/ menit">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_pernafasan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            tools:text="150" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nadi"
+        style="@style/Textfield"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/denyut_nadi_menit"
+        app:layout_constraintLeft_toLeftOf="@id/perfanasan"
+        app:layout_constraintRight_toRightOf="@id/perfanasan"
+        app:layout_constraintTop_toBottomOf="@id/perfanasan"
+        app:suffixText="/ menit">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_nadi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            tools:text="120" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tekanan_darah"
+        style="@style/Textfield"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/tekanan_darah"
+        app:layout_constraintLeft_toLeftOf="@id/nadi"
+        app:layout_constraintRight_toRightOf="@id/nadi"
+        app:layout_constraintTop_toBottomOf="@id/nadi">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_tekanan_darah"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/suhu"
+        style="@style/Textfield"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/suhu"
+        app:layout_constraintLeft_toLeftOf="@id/tekanan_darah"
+        app:layout_constraintRight_toRightOf="@id/tekanan_darah"
+        app:layout_constraintTop_toBottomOf="@id/tekanan_darah"
+        app:suffixText="°C">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_suhu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            tools:text="2" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/containe_full_corner"
+        android:backgroundTint="@color/green"
+        android:paddingVertical="8dp"
+        android:text="@string/label"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="@id/suhu"
+        app:layout_constraintRight_toRightOf="@id/suhu"
+        app:layout_constraintTop_toBottomOf="@id/suhu"
+        android:visibility="gone"
+        tools:text="LABEL: GAWAT" />
+
+    <Button
+        android:id="@+id/diagnosa"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/label"
+        app:layout_constraintLeft_toLeftOf="@id/suhu"
+        app:layout_constraintRight_toRightOf="@id/suhu"
+        android:layout_marginTop="12dp"
+        android:text="@string/diagnosa"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
