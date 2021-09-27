@@ -1,4 +1,4 @@
-package com.example.ewss.ui.storage
+package com.example.ewss.ui.main.storage
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

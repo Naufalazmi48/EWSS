@@ -1,11 +1,15 @@
-package com.example.ewss
+package com.example.ewss.ui.signin
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ewss.R
 import com.example.ewss.databinding.ActivitySignInBinding
+import com.example.ewss.ui.forgot.ForgotPasswordActivity
+import com.example.ewss.ui.main.MainActivity
+import com.example.ewss.ui.register.RegisterActivity
 
 class SignInActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignInBinding

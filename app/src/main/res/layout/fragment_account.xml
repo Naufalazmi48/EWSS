@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/container_fragment"
-    tools:context=".ui.account.AccountFragment">
+    tools:context=".ui.main.account.AccountFragment">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/avatar"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/container_fragment"
-    tools:context=".ui.storage.StorageFragment">
+    tools:context=".ui.main.storage.StorageFragment">
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search_patient"

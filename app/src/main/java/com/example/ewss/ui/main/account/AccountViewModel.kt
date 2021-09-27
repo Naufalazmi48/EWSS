@@ -1,4 +1,4 @@
-package com.example.ewss.ui.account
+package com.example.ewss.ui.main.account
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

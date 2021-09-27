@@ -1,4 +1,4 @@
-package com.example.ewss
+package com.example.ewss.ui.forgot
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ewss.R
 import com.example.ewss.databinding.ActivityForgotPasswordBinding
 
 class ForgotPasswordActivity : AppCompatActivity() {
@@ -25,7 +26,9 @@ class ForgotPasswordActivity : AppCompatActivity() {
         with(binding) {
             sendVerificationCode.setOnClickListener {
                 with(binding) {
-                    if (!inputEmail.isNullorEmpty() && inputEmail.isEmail()) verifyCodeVerification(STATE.VERIFY_CODE)
+                    if (!inputEmail.isNullorEmpty() && inputEmail.isEmail()) verifyCodeVerification(
+                        STATE.VERIFY_CODE
+                    )
                 }
             }
             verification.setOnClickListener {

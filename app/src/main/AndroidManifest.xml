@@ -10,17 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EWSS">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.main.MainActivity"
             android:exported="true"
             android:label="@string/title_activity_main" />
         <activity
-            android:name=".ForgotPasswordActivity"
+            android:name=".ui.forgot.ForgotPasswordActivity"
             android:exported="true" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".ui.register.RegisterActivity"
             android:exported="true" />
         <activity
-            android:name=".SignInActivity"
+            android:name=".ui.signin.SignInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
