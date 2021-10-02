@@ -1,5 +1,6 @@
 package com.example.ewss.ui.main.account
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,13 +8,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.ewss.databinding.FragmentAccountBinding
+import com.example.ewss.ui.signin.SignInActivity
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AccountFragment : Fragment() {
-    private lateinit var accountViewModel: AccountViewModel
+    private val accountViewModel: AccountViewModel by viewModel()
     private var _binding: FragmentAccountBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -21,13 +21,24 @@ class AccountFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        accountViewModel =
-            ViewModelProvider(this).get(AccountViewModel::class.java)
-
         _binding = FragmentAccountBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        return binding.root
+    }
 
-        return root
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        accountViewModel.getDataUser().observe(requireActivity(), {
+            with(binding) {
+                name.text = it.name
+                inputPhoneNumber.setText(it.phone)
+                inputEmail.setText(it.email)
+            }
+        })
+        binding.logout.setOnClickListener {
+            accountViewModel.logout()
+            requireActivity().finishAffinity()
+            startActivity(Intent(requireActivity(), SignInActivity::class.java))
+        }
     }
 
     override fun onDestroyView() {

@@ -42,4 +42,5 @@
     <string name="tekanan_darah">Tekanan Darah</string>
     <string name="suhu">Suhu</string>
     <string name="label">Label: %1$s</string>
+    <string name="logout">Logout</string>
 </resources>
