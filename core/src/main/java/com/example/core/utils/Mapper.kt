@@ -1,6 +1,8 @@
 package com.example.core.utils
 
+import com.example.core.data.remote.response.DataDiagnosa
 import com.example.core.data.remote.response.DataLogin
+import com.example.core.domain.model.Diagnosa
 import com.example.core.domain.model.Login
 
 object Mapper {
@@ -15,5 +17,11 @@ object Mapper {
             city = dataLogin.city ?: "-",
             createdAt = dataLogin.createdAt ?: "-",
             emailVerifiedAt = dataLogin.emailVerifiedAt != null
+        )
+
+    fun mapDiagnosaResponseToDomain(dataDiagnosa: DataDiagnosa): Diagnosa =
+        Diagnosa(
+            result = dataDiagnosa.hasil ?: "-",
+            detailResult = dataDiagnosa.keteranganHasil ?: "-"
         )
 }

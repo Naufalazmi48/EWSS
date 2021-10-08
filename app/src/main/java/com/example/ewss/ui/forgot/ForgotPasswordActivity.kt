@@ -16,8 +16,6 @@ class ForgotPasswordActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityForgotPasswordBinding.inflate(layoutInflater)
 
-        supportActionBar?.title = getString(R.string.forgot_password_activity)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setupListener()
         setContentView(binding.root)
     }
@@ -95,10 +93,5 @@ class ForgotPasswordActivity : AppCompatActivity() {
         VERIFY_EMAIL,
         VERIFY_CODE,
         RESET_PASSWORD
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == android.R.id.home) onBackPressed()
-        return super.onOptionsItemSelected(item)
     }
 }

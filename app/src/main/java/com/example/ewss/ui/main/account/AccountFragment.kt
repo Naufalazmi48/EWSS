@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.example.ewss.databinding.FragmentAccountBinding
 import com.example.ewss.ui.signin.SignInActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -36,8 +35,10 @@ class AccountFragment : Fragment() {
         })
         binding.logout.setOnClickListener {
             accountViewModel.logout()
-            requireActivity().finishAffinity()
-            startActivity(Intent(requireActivity(), SignInActivity::class.java))
+            startActivity(
+                Intent(requireActivity(), SignInActivity::class.java)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            )
         }
     }
 

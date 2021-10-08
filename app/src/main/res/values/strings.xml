@@ -41,6 +41,8 @@
     <string name="denyut_nadi_menit">Denyut Nadi</string>
     <string name="tekanan_darah">Tekanan Darah</string>
     <string name="suhu">Suhu</string>
-    <string name="label">Label: %1$s</string>
     <string name="logout">Logout</string>
+    <string name="diagnosa_result">Hasil: %1$s</string>
+    <string name="keterangan">Keterangan</string>
+    <string name="label">Label</string>
 </resources>

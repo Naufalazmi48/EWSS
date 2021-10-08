@@ -14,9 +14,6 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
-
-        supportActionBar?.title = getString(R.string.register)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setupListener()
         setContentView(binding.root)
     }
@@ -99,10 +96,5 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
         return false
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == android.R.id.home) onBackPressed()
-        return super.onOptionsItemSelected(item)
     }
 }

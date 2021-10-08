@@ -2,9 +2,11 @@ package com.example.core.data
 
 import com.example.core.data.remote.RemoteDataSource
 import com.example.core.data.remote.network.ApiResponse
+import com.example.core.domain.model.Diagnosa
 import com.example.core.domain.model.Login
 import com.example.core.domain.repository.IRepository
-import com.example.core.presentation.model.Account
+import com.example.core.presentation.model.DiagnosaForm
+import com.example.core.utils.Mapper.mapDiagnosaResponseToDomain
 import com.example.core.utils.Mapper.mapLoginResponseToDomain
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -17,7 +19,7 @@ class Repository(private val remoteDataSource: RemoteDataSource) : IRepository {
         emit(Resource.Loading())
         remoteDataSource.login(email, password).collect {
             when (it) {
-                is ApiResponse.Empty -> emit(Resource.Error<Login>(message = "Data is null"))
+                is ApiResponse.Empty -> emit(Resource.Error<Login>(message = "Failed to Login"))
                 is ApiResponse.Error -> emit(Resource.Error<Login>(message = it.errorMessage))
                 is ApiResponse.Success -> {
                     val domain = mapLoginResponseToDomain(it.data)
@@ -31,4 +33,18 @@ class Repository(private val remoteDataSource: RemoteDataSource) : IRepository {
             }
         }
     }.flowOn(Dispatchers.IO)
+
+    override suspend fun diagnosa(diagnosaForm: DiagnosaForm): Flow<Resource<Diagnosa>> = flow {
+        emit(Resource.Loading())
+        remoteDataSource.diagnosa(diagnosaForm).collect {
+            when (it) {
+                is ApiResponse.Empty -> emit(Resource.Error<Diagnosa>(message = "Failed to get data diagnosa"))
+                is ApiResponse.Error -> emit(Resource.Error<Diagnosa>(message = it.errorMessage))
+                is ApiResponse.Success -> {
+                    val domain = mapDiagnosaResponseToDomain(it.data)
+                    emit(Resource.Success(domain))
+                }
+            }
+        }
+    }
 }
