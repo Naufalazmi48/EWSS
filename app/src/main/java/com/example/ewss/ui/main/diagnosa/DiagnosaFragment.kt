@@ -41,20 +41,9 @@ class DiagnosaFragment : Fragment() {
 
     private fun setupListener() {
         binding.btnDiagnosa.setOnClickListener {
-            // Data Dummy
-            val dummy = DiagnosaForm(
-                fullname = "Lalu Naufal Azmi",
-                address = "Karang Pule",
-                age = 21,
-                kesadaran = "Apatis",
-                pernafasan = 100,
-                denyutNadi = 100,
-                tekananDarah = 120,
-                suhu = 20
-            )
 
-            diagnosaViewModel.diagnosa(dummy).observe(requireActivity(), {
-                when(it) {
+            diagnosaViewModel.diagnosa(getDiagnosaForm()).observe(requireActivity(), {
+                when (it) {
                     is Resource.Error -> {
                         binding.loading.visibility = View.GONE
                         Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
@@ -67,10 +56,28 @@ class DiagnosaFragment : Fragment() {
                             putString(DiagnosaResultFragment.DATA_RESULT, it.data?.result)
                             putString(DiagnosaResultFragment.DATA_MESSAGE, it.data?.detailResult)
                         }
-                        resultDialog.show(childFragmentManager, DiagnosaResultFragment::javaClass.name)
+                        resultDialog.show(
+                            childFragmentManager,
+                            DiagnosaResultFragment::javaClass.name
+                        )
                     }
                 }
             })
+        }
+    }
+
+    private fun getDiagnosaForm(): DiagnosaForm {
+        with(binding) {
+            return DiagnosaForm(
+                fullname = inputFullname.text.toString(),
+                address = inputAddress.text.toString(),
+                age = inputAge.text.toString().toInt(),
+                kesadaran = kesadaranAutocomplete.text.toString(),
+                denyutNadi = inputNadi.text.toString().toInt(),
+                suhu = inputSuhu.text.toString().toInt(),
+                pernafasan = inputPernafasan.text.toString().toInt(),
+                tekananDarah = inputTekananDarah.text.toString().toInt()
+            )
         }
     }
 
