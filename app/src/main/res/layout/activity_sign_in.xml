@@ -54,7 +54,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/email"
-        style="@style/Textfield"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="56dp"
@@ -73,7 +73,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/password"
-        style="@style/Textfield"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="56dp"

@@ -1,11 +1,10 @@
 package com.example.core.data.remote.network
 
+import com.example.core.data.remote.response.DetailDiagnosaResponse
 import com.example.core.data.remote.response.DiagnosaResponse
+import com.example.core.data.remote.response.HistoryDiagnosaResponse
 import com.example.core.data.remote.response.LoginResponse
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiService {
     @FormUrlEncoded
@@ -28,4 +27,15 @@ interface ApiService {
         @Field("tekanan_darah") tekananDarah: Int,
         @Field("suhu") suhu: Int,
     ): DiagnosaResponse
+
+    @GET("diagnosa/histories")
+    suspend fun historyDiagnosa(
+        @Header("Authorization") authToken: String,
+    ): HistoryDiagnosaResponse
+
+    @GET("diagnosa/histories/{id}/detail")
+    suspend fun detailDiagnosa(
+        @Header("Authorization") authToken: String,
+        @Path("id") id: Int,
+    ): DetailDiagnosaResponse
 }

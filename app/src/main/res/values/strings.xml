@@ -31,7 +31,7 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="diagnosa">Diagnosa</string>
-    <string name="storage">Storage</string>
+    <string name="history">History</string>
     <string name="account">Account</string>
     <string name="picture_ewss">Picture EWSS</string>
     <string name="personal_info">PERSONAL INFO</string>
@@ -45,4 +45,20 @@
     <string name="diagnosa_result">Hasil: %1$s</string>
     <string name="keterangan">Keterangan</string>
     <string name="label">Label</string>
+    <string name="status">Status: %1$s</string>
+    <string name="keterangan_detail">Keterangan: %1$s</string>
+    <string name="tingkat_kegawatan">Tingkat Kegawatan</string>
+
+    <string-array name="status_patient">
+        <item>Berbahaya</item>
+        <item>Waspada</item>
+        <item>Hati-Hati</item>
+        <item>Aman</item>
+    </string-array>
+
+    <string-array name="status_kesadaran">
+        <item>Apatis</item>
+        <item>Apatis1</item>
+        <item>Apatis2</item>
+    </string-array>
 </resources>

@@ -3,10 +3,12 @@ package com.example.core.data
 import com.example.core.data.remote.RemoteDataSource
 import com.example.core.data.remote.network.ApiResponse
 import com.example.core.domain.model.Diagnosa
+import com.example.core.domain.model.HistoryDiagnosa
 import com.example.core.domain.model.Login
 import com.example.core.domain.repository.IRepository
 import com.example.core.presentation.model.DiagnosaForm
 import com.example.core.utils.Mapper.mapDiagnosaResponseToDomain
+import com.example.core.utils.Mapper.mapHistoryDiagnosaResponseToDomain
 import com.example.core.utils.Mapper.mapLoginResponseToDomain
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -46,5 +48,31 @@ class Repository(private val remoteDataSource: RemoteDataSource) : IRepository {
                 }
             }
         }
+    }
+
+    override suspend fun getHistoryDiagnosa(): Flow<Resource<List<HistoryDiagnosa>>> =
+        flow {
+            emit(Resource.Loading())
+            remoteDataSource.historyDiagnosa().collect {
+                when (it) {
+                    is ApiResponse.Empty -> emit(Resource.Success<List<HistoryDiagnosa>>(emptyList()))
+                    is ApiResponse.Error -> emit(Resource.Error<List<HistoryDiagnosa>>(message = it.errorMessage))
+                    is ApiResponse.Success -> {
+                        val listDomain = mapHistoryDiagnosaResponseToDomain(it.data)
+                        listDomain.forEach { data ->
+                            data.diagnosaResult = getDetailDiagnosa(data.id)
+                        }
+                        emit(Resource.Success(listDomain))
+                    }
+                }
+            }
+        }
+
+    private suspend fun getDetailDiagnosa(id: Int): Diagnosa? {
+        var diagnosa: Diagnosa? = null
+        remoteDataSource.detailDiagnosa(id).collect {
+            if (it is ApiResponse.Success) diagnosa = mapDiagnosaResponseToDomain(it.data)
+        }
+        return diagnosa
     }
 }

@@ -13,7 +13,7 @@
         android:layout_marginHorizontal="56dp"
         android:layout_marginTop="32dp"
         android:hint="@string/fullname"
-        style="@style/Textfield"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -33,7 +33,7 @@
         android:layout_marginHorizontal="56dp"
         android:layout_marginTop="8dp"
         android:hint="@string/username"
-        style="@style/Textfield"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fullname">
@@ -53,7 +53,7 @@
         android:layout_marginHorizontal="56dp"
         android:layout_marginTop="8dp"
         android:hint="@string/email"
-        style="@style/Textfield"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/username">
@@ -73,7 +73,7 @@
         android:layout_marginHorizontal="56dp"
         android:layout_marginTop="8dp"
         android:hint="@string/number_phone"
-        style="@style/Textfield"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/email">
@@ -93,7 +93,7 @@
         android:layout_marginHorizontal="56dp"
         android:layout_marginTop="8dp"
         android:hint="@string/address"
-        style="@style/Textfield"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/phone_number">
@@ -112,7 +112,7 @@
         android:layout_marginHorizontal="56dp"
         android:layout_marginTop="8dp"
         android:hint="@string/password"
-        style="@style/Textfield"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:helperTextEnabled="true"
@@ -135,7 +135,7 @@
         android:layout_marginHorizontal="56dp"
         android:layout_marginTop="8dp"
         android:hint="@string/confirm_password"
-        style="@style/Textfield"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:passwordToggleEnabled="true"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

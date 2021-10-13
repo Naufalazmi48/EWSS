@@ -14,7 +14,7 @@
     <item
         android:id="@+id/navigation_storage"
         android:icon="@drawable/ic_storage"
-        android:title="@string/storage" />
+        android:title="@string/history" />
 
     <item
         android:id="@+id/navigation_account"

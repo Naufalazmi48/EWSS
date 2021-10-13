@@ -10,6 +10,7 @@ import com.example.core.data.Resource
 import com.example.core.presentation.model.DiagnosaForm
 import com.example.ewss.databinding.FragmentDiagnosaBinding
 import com.example.ewss.ui.main.diagnosa.result.DiagnosaResultFragment
+import com.example.ewss.utils.StatusPatient.setKesadaranAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DiagnosaFragment : Fragment() {
@@ -30,11 +31,16 @@ class DiagnosaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         setupListener()
+        setupAdapter()
         super.onViewCreated(view, savedInstanceState)
     }
 
+    private fun setupAdapter() {
+        requireContext().setKesadaranAdapter(binding.kesadaranAutocomplete)
+    }
+
     private fun setupListener() {
-        binding.diagnosa.setOnClickListener {
+        binding.btnDiagnosa.setOnClickListener {
             // Data Dummy
             val dummy = DiagnosaForm(
                 fullname = "Lalu Naufal Azmi",

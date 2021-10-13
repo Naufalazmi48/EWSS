@@ -9,7 +9,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/fullname"
-        style="@style/Textfield"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="48dp"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_username"
+            android:id="@+id/input_fullname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text" />
@@ -28,7 +28,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/address"
-        style="@style/Textfield"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -46,7 +46,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/age"
-        style="@style/Textfield"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -63,9 +63,9 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/kesadaran"
-        style="@style/Textfield"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="200dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         app:endIconMode="dropdown_menu"
         android:hint="@string/kesadaran"
@@ -85,8 +85,8 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/perfanasan"
-        style="@style/Textfield"
+        android:id="@+id/pernafasan"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -100,33 +100,31 @@
             android:id="@+id/input_pernafasan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            tools:text="150" />
+            android:inputType="number"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/nadi"
-        style="@style/Textfield"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:hint="@string/denyut_nadi_menit"
-        app:layout_constraintLeft_toLeftOf="@id/perfanasan"
-        app:layout_constraintRight_toRightOf="@id/perfanasan"
-        app:layout_constraintTop_toBottomOf="@id/perfanasan"
+        app:layout_constraintLeft_toLeftOf="@id/pernafasan"
+        app:layout_constraintRight_toRightOf="@id/pernafasan"
+        app:layout_constraintTop_toBottomOf="@id/pernafasan"
         app:suffixText="/ menit">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_nadi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            tools:text="120" />
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tekanan_darah"
-        style="@style/Textfield"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -144,7 +142,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/suhu"
-        style="@style/Textfield"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -158,33 +156,14 @@
             android:id="@+id/input_suhu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            tools:text="2" />
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/label"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/containe_full_corner"
-        android:backgroundTint="@color/green"
-        android:paddingVertical="8dp"
-        android:text="@string/label"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        app:layout_constraintLeft_toLeftOf="@id/suhu"
-        app:layout_constraintRight_toRightOf="@id/suhu"
-        app:layout_constraintTop_toBottomOf="@id/suhu"
-        android:visibility="gone"
-        tools:text="LABEL: GAWAT" />
-
     <Button
-        android:id="@+id/diagnosa"
+        android:id="@+id/btn_diagnosa"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/label"
+        app:layout_constraintTop_toBottomOf="@id/suhu"
         app:layout_constraintLeft_toLeftOf="@id/suhu"
         app:layout_constraintRight_toRightOf="@id/suhu"
         android:layout_marginTop="12dp"

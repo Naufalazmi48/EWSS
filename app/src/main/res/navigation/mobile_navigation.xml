@@ -19,9 +19,9 @@
 
     <fragment
         android:id="@+id/navigation_storage"
-        android:name="com.example.ewss.ui.main.storage.StorageFragment"
-        android:label="@string/storage"
-        tools:layout="@layout/fragment_storage" />
+        android:name="com.example.ewss.ui.main.history.HistoryFragment"
+        android:label="@string/history"
+        tools:layout="@layout/fragment_history" />
 
     <fragment
         android:id="@+id/navigation_account"

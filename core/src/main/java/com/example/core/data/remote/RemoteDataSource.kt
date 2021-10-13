@@ -4,8 +4,7 @@ import android.util.Log
 import com.example.core.data.preferences.UserPreferences
 import com.example.core.data.remote.network.ApiResponse
 import com.example.core.data.remote.network.ApiService
-import com.example.core.data.remote.response.DataDiagnosa
-import com.example.core.data.remote.response.DataLogin
+import com.example.core.data.remote.response.*
 import com.example.core.presentation.model.DiagnosaForm
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
@@ -48,6 +47,52 @@ class RemoteDataSource(private val apiService: ApiService, private val prefs: Us
                     tekananDarah = diagnosaForm.tekananDarah,
                     suhu = diagnosaForm.suhu
                 )
+                if (result.data == null) emit(ApiResponse.Empty)
+                else {
+                    emit(ApiResponse.Success(result.data))
+                }
+            } catch (e: Exception) {
+                emit(ApiResponse.Error(e.toString()))
+                Log.e(javaClass.name, e.toString())
+            }
+        }
+
+    suspend fun historyDiagnosa(): Flow<ApiResponse<List<DataHistoryDiagnosa>>> =
+        flow {
+            try {
+                val authToken: String? = prefs.getApiKey().first()
+
+                if (authToken.isNullOrEmpty()) {
+                    emit(ApiResponse.Error("You need auth token to do this request"))
+                    return@flow
+                }
+
+                val result = apiService.historyDiagnosa("Bearer $authToken")
+                if (result.data.isNullOrEmpty()) emit(ApiResponse.Empty)
+                else {
+                    val list = arrayListOf<DataHistoryDiagnosa>()
+                    result.data.forEach {
+                        if (it != null) list.add(it)
+                    }
+                    emit(ApiResponse.Success(list))
+                }
+            } catch (e: Exception) {
+                emit(ApiResponse.Error(e.toString()))
+                Log.e(javaClass.name, e.toString())
+            }
+        }
+
+    suspend fun detailDiagnosa(id: Int): Flow<ApiResponse<DataDiagnosa>> =
+        flow {
+            try {
+                val authToken: String? = prefs.getApiKey().first()
+
+                if (authToken.isNullOrEmpty()) {
+                    emit(ApiResponse.Error("You need auth token to do this request"))
+                    return@flow
+                }
+
+                val result = apiService.detailDiagnosa("Bearer $authToken", id)
                 if (result.data == null) emit(ApiResponse.Empty)
                 else {
                     emit(ApiResponse.Success(result.data))

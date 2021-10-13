@@ -5,13 +5,10 @@ import com.google.gson.annotations.SerializedName
 data class HistoryDiagnosaResponse(
 
 	@field:SerializedName("data")
-	val data: List<DataItem?>? = null,
-
-	@field:SerializedName("message")
-	val message: String? = null
+	val data: List<DataHistoryDiagnosa?>? = null
 )
 
-data class DataItem(
+data class DataHistoryDiagnosa(
 
 	@field:SerializedName("usia")
 	val usia: Int? = null,

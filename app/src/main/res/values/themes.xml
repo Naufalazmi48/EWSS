@@ -14,13 +14,4 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Textfield">
-        <item name="boxCornerRadiusBottomEnd">20dp</item>
-        <item name="boxCornerRadiusBottomStart">20dp</item>
-        <item name="boxCornerRadiusTopStart">20dp</item>
-        <item name="boxCornerRadiusTopEnd">20dp</item>
-        <item name="boxStrokeWidth">0dp</item>
-        <item name="boxStrokeWidthFocused">0dp</item>
-    </style>
-
 </resources>
