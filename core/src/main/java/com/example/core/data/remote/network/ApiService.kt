@@ -1,6 +1,5 @@
 package com.example.core.data.remote.network
 
-import com.example.core.data.remote.response.DetailDiagnosaResponse
 import com.example.core.data.remote.response.DiagnosaResponse
 import com.example.core.data.remote.response.HistoryDiagnosaResponse
 import com.example.core.data.remote.response.LoginResponse
@@ -32,10 +31,4 @@ interface ApiService {
     suspend fun historyDiagnosa(
         @Header("Authorization") authToken: String,
     ): HistoryDiagnosaResponse
-
-    @GET("diagnosa/histories/{id}/detail")
-    suspend fun detailDiagnosa(
-        @Header("Authorization") authToken: String,
-        @Path("id") id: Int,
-    ): DetailDiagnosaResponse
 }

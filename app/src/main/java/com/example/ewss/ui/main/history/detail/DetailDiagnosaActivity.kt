@@ -54,7 +54,10 @@ class DetailDiagnosaActivity : AppCompatActivity() {
         with(binding) {
             val diagnosaResult = diagnosaHistory.diagnosaResult
             if (diagnosaResult != null) {
-                status.text = getString(R.string.status, diagnosaResult.result)
+                status.text = getString(
+                    R.string.status,
+                    resources.getStringArray(R.array.status_patient)[diagnosaResult.result.toInt() - 1]
+                )
                 ketaranganHasil.text = getString(
                     R.string.keterangan_detail,
                     diagnosaResult.detailResult

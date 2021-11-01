@@ -1,7 +1,6 @@
 package com.example.core.utils
 
 import com.example.core.data.remote.response.DataDiagnosa
-import com.example.core.data.remote.response.DataHistoryDiagnosa
 import com.example.core.data.remote.response.DataLogin
 import com.example.core.domain.model.Diagnosa
 import com.example.core.domain.model.HistoryDiagnosa
@@ -27,7 +26,7 @@ object Mapper {
             detailResult = dataDiagnosa.keteranganHasil ?: "-"
         )
 
-    fun mapHistoryDiagnosaResponseToDomain(listDataHistoryDiagnosa: List<DataHistoryDiagnosa>): List<HistoryDiagnosa> =
+    fun mapHistoryDiagnosaResponseToDomain(listDataHistoryDiagnosa: List<DataDiagnosa>): List<HistoryDiagnosa> =
         listDataHistoryDiagnosa.map {
             HistoryDiagnosa(
                 usia = it.usia ?: -1,
@@ -39,7 +38,7 @@ object Mapper {
                 suhu = it.suhu ?: -1,
                 id = it.id ?: -1,
                 alamat = it.alamat ?: "-",
-                diagnosaResult = null
+                diagnosaResult = Diagnosa(result = it.hasil ?: "-", detailResult = it.keteranganHasil ?: "-")
             )
         }
 }

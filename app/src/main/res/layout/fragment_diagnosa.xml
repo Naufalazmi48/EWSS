@@ -1,183 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     android:background="@drawable/container_fragment"
     tools:context=".ui.main.diagnosa.DiagnosaFragment">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/fullname"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="48dp"
-        android:layout_marginTop="32dp"
-        android:hint="@string/fullname"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_fullname"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/fullname"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginHorizontal="48dp"
+            android:layout_marginTop="32dp"
+            android:hint="@string/fullname"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/address"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:hint="@string/address"
-        app:layout_constraintLeft_toLeftOf="@id/fullname"
-        app:layout_constraintRight_toRightOf="@id/fullname"
-        app:layout_constraintTop_toBottomOf="@id/fullname">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_fullname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_address"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/address"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="12dp"
+            android:hint="@string/address"
+            app:layout_constraintLeft_toLeftOf="@id/fullname"
+            app:layout_constraintRight_toRightOf="@id/fullname"
+            app:layout_constraintTop_toBottomOf="@id/fullname">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/age"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:hint="@string/usia"
-        app:layout_constraintLeft_toLeftOf="@id/address"
-        app:layout_constraintTop_toBottomOf="@id/address">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_age"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/age"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="number" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="12dp"
+            android:hint="@string/usia"
+            app:layout_constraintLeft_toLeftOf="@id/address"
+            app:layout_constraintRight_toRightOf="@id/address"
+            app:layout_constraintTop_toBottomOf="@id/address">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/kesadaran"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        app:endIconMode="dropdown_menu"
-        android:hint="@string/kesadaran"
-        app:layout_constraintBottom_toBottomOf="@id/age"
-        app:layout_constraintLeft_toRightOf="@id/age"
-        app:layout_constraintRight_toRightOf="@id/address"
-        app:layout_constraintTop_toTopOf="@id/age"
-        tools:ignore="RtlSymmetry">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <AutoCompleteTextView
-            android:id="@+id/kesadaran_autocomplete"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="none"
-            android:paddingStart="12dp"
-            tools:ignore="LabelFor" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/pernafasan"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:hint="@string/pernafasan_menit"
-        app:layout_constraintLeft_toLeftOf="@id/age"
-        app:layout_constraintRight_toRightOf="@id/kesadaran"
-        app:layout_constraintTop_toBottomOf="@id/age"
-        app:suffixText="/ menit">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_pernafasan"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/kesadaran"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="number"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="12dp"
+            android:hint="@string/kesadaran"
+            app:endIconMode="dropdown_menu"
+            app:layout_constraintLeft_toLeftOf="@id/age"
+            app:layout_constraintRight_toRightOf="@id/age"
+            app:layout_constraintTop_toBottomOf="@id/age"
+            tools:ignore="RtlSymmetry">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/nadi"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:hint="@string/denyut_nadi_menit"
-        app:layout_constraintLeft_toLeftOf="@id/pernafasan"
-        app:layout_constraintRight_toRightOf="@id/pernafasan"
-        app:layout_constraintTop_toBottomOf="@id/pernafasan"
-        app:suffixText="/ menit">
+            <AutoCompleteTextView
+                android:id="@+id/kesadaran_autocomplete"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="none"
+                android:paddingStart="12dp"
+                tools:ignore="LabelFor" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_nadi"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/pernafasan"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="number" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="12dp"
+            android:hint="@string/pernafasan_menit"
+            app:layout_constraintLeft_toLeftOf="@id/kesadaran"
+            app:layout_constraintRight_toRightOf="@id/kesadaran"
+            app:layout_constraintTop_toBottomOf="@id/kesadaran"
+            app:suffixText="/ menit">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tekanan_darah"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:hint="@string/tekanan_darah"
-        app:layout_constraintLeft_toLeftOf="@id/nadi"
-        app:layout_constraintRight_toRightOf="@id/nadi"
-        app:layout_constraintTop_toBottomOf="@id/nadi">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_pernafasan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_tekanan_darah"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nadi"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="number" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="12dp"
+            android:hint="@string/denyut_nadi_menit"
+            app:layout_constraintLeft_toLeftOf="@id/pernafasan"
+            app:layout_constraintRight_toRightOf="@id/pernafasan"
+            app:layout_constraintTop_toBottomOf="@id/pernafasan"
+            app:suffixText="/ menit">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/suhu"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:hint="@string/suhu"
-        app:layout_constraintLeft_toLeftOf="@id/tekanan_darah"
-        app:layout_constraintRight_toRightOf="@id/tekanan_darah"
-        app:layout_constraintTop_toBottomOf="@id/tekanan_darah"
-        app:suffixText="°C">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_nadi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_suhu"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tekanan_darah"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="number" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="12dp"
+            android:hint="@string/tekanan_darah"
+            app:layout_constraintLeft_toLeftOf="@id/nadi"
+            app:layout_constraintRight_toRightOf="@id/nadi"
+            app:layout_constraintTop_toBottomOf="@id/nadi">
 
-    <Button
-        android:id="@+id/btn_diagnosa"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/suhu"
-        app:layout_constraintLeft_toLeftOf="@id/suhu"
-        app:layout_constraintRight_toRightOf="@id/suhu"
-        android:layout_marginTop="12dp"
-        android:text="@string/diagnosa"
-        />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_tekanan_darah"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <ProgressBar
-        android:id="@+id/loading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:visibility="gone"
-        />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/suhu"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="@string/suhu"
+            app:layout_constraintLeft_toLeftOf="@id/tekanan_darah"
+            app:layout_constraintRight_toRightOf="@id/tekanan_darah"
+            app:layout_constraintTop_toBottomOf="@id/tekanan_darah"
+            app:suffixText="°C">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_suhu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_diagnosa"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/diagnosa"
+            app:layout_constraintLeft_toLeftOf="@id/suhu"
+            app:layout_constraintRight_toRightOf="@id/suhu"
+            app:layout_constraintTop_toBottomOf="@id/suhu" />
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

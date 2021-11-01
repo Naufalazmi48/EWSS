@@ -57,7 +57,7 @@ class RemoteDataSource(private val apiService: ApiService, private val prefs: Us
             }
         }
 
-    suspend fun historyDiagnosa(): Flow<ApiResponse<List<DataHistoryDiagnosa>>> =
+    suspend fun historyDiagnosa(): Flow<ApiResponse<List<DataDiagnosa>>> =
         flow {
             try {
                 val authToken: String? = prefs.getApiKey().first()
@@ -70,32 +70,11 @@ class RemoteDataSource(private val apiService: ApiService, private val prefs: Us
                 val result = apiService.historyDiagnosa("Bearer $authToken")
                 if (result.data.isNullOrEmpty()) emit(ApiResponse.Empty)
                 else {
-                    val list = arrayListOf<DataHistoryDiagnosa>()
+                    val list = arrayListOf<DataDiagnosa>()
                     result.data.forEach {
                         if (it != null) list.add(it)
                     }
                     emit(ApiResponse.Success(list))
-                }
-            } catch (e: Exception) {
-                emit(ApiResponse.Error(e.toString()))
-                Log.e(javaClass.name, e.toString())
-            }
-        }
-
-    suspend fun detailDiagnosa(id: Int): Flow<ApiResponse<DataDiagnosa>> =
-        flow {
-            try {
-                val authToken: String? = prefs.getApiKey().first()
-
-                if (authToken.isNullOrEmpty()) {
-                    emit(ApiResponse.Error("You need auth token to do this request"))
-                    return@flow
-                }
-
-                val result = apiService.detailDiagnosa("Bearer $authToken", id)
-                if (result.data == null) emit(ApiResponse.Empty)
-                else {
-                    emit(ApiResponse.Success(result.data))
                 }
             } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))

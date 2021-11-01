@@ -41,7 +41,6 @@ class DiagnosaFragment : Fragment() {
 
     private fun setupListener() {
         binding.btnDiagnosa.setOnClickListener {
-
             diagnosaViewModel.diagnosa(getDiagnosaForm()).observe(requireActivity(), {
                 when (it) {
                     is Resource.Error -> {
@@ -60,9 +59,23 @@ class DiagnosaFragment : Fragment() {
                             childFragmentManager,
                             DiagnosaResultFragment::javaClass.name
                         )
+                        clearForm()
                     }
                 }
             })
+        }
+    }
+
+    private fun clearForm(){
+        with(binding){
+            inputFullname.setText("")
+            inputAge.setText("")
+            inputAddress.setText("")
+            kesadaranAutocomplete.setText("")
+            inputSuhu.setText("")
+            inputTekananDarah.setText("")
+            inputPernafasan.setText("")
+            inputNadi.setText("")
         }
     }
 

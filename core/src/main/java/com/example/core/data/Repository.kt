@@ -59,20 +59,9 @@ class Repository(private val remoteDataSource: RemoteDataSource) : IRepository {
                     is ApiResponse.Error -> emit(Resource.Error<List<HistoryDiagnosa>>(message = it.errorMessage))
                     is ApiResponse.Success -> {
                         val listDomain = mapHistoryDiagnosaResponseToDomain(it.data)
-                        listDomain.forEach { data ->
-                            data.diagnosaResult = getDetailDiagnosa(data.id)
-                        }
                         emit(Resource.Success(listDomain))
                     }
                 }
             }
         }
-
-    private suspend fun getDetailDiagnosa(id: Int): Diagnosa? {
-        var diagnosa: Diagnosa? = null
-        remoteDataSource.detailDiagnosa(id).collect {
-            if (it is ApiResponse.Success) diagnosa = mapDiagnosaResponseToDomain(it.data)
-        }
-        return diagnosa
-    }
 }

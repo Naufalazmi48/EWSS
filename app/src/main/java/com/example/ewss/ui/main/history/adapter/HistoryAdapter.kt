@@ -38,8 +38,11 @@ class HistoryAdapter(private val context: Context) :
                 val diagnosa = historyDiagnosa.diagnosaResult
                 if (diagnosa != null) {
                     status.text =
-                        context.getString(R.string.status, diagnosa.result)
-                    label.background.setTintList(ContextCompat.getColorStateList(context, context.checkStatusColor(diagnosa.result)))
+                        context.getString(
+                            R.string.status,
+                            context.resources.getStringArray(R.array.status_patient)[diagnosa.result.toInt() - 1]
+                        )
+                    label.setColorFilter(ContextCompat.getColor(context, checkStatusColor(diagnosa.result)))
                 }
             }
         }

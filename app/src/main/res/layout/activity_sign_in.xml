@@ -121,6 +121,7 @@
         android:layout_marginTop="48dp"
         android:text="@string/not_have_account"
         app:layout_constraintLeft_toLeftOf="parent"
+        android:visibility="gone"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login" />
 
@@ -132,6 +133,7 @@
         android:layout_marginTop="8dp"
         android:paddingHorizontal="48dp"
         android:text="@string/register"
+        android:visibility="gone"
         android:textColor="@color/primary"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

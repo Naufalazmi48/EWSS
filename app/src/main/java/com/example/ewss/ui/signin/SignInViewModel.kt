@@ -11,14 +11,16 @@ import kotlinx.coroutines.launch
 
 class SignInViewModel(private val repository: IRepository, private val prefs: UserPreferences) :
     ViewModel() {
-    fun login(email: String, password: String): LiveData<Resource<Login>> {
-        val result = MutableLiveData<Resource<Login>>()
+
+    private val _login = MutableLiveData<Resource<Login>>()
+    val loginObserver = _login
+
+    fun login(email: String, password: String) {
         viewModelScope.launch {
             repository.login(email, password).collect {
-                result.postValue(it)
+                _login.postValue(it)
             }
         }
-        return result
     }
 
     fun alreadyLoggedIn(): LiveData<Account> {

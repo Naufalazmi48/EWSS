@@ -23,15 +23,52 @@ class SignInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
 
+
+        setupListener()
+        setupObserver()
+
         viewModel.alreadyLoggedIn().observe(this, {
             if (!it.name.isNullOrEmpty()) {
-                startActivity(Intent(this@SignInActivity, MainActivity::class.java))
-                finish()
+                startActivity(Intent(this@SignInActivity, MainActivity::class.java)
+                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
             }
         })
-        supportActionBar?.hide()
-        setupListener()
+        viewModel.login(getString(R.string.dummy_email), getString(R.string.dummy_password))
         setContentView(binding.root)
+    }
+
+    private fun setupObserver() {
+        viewModel.loginObserver.observe(this@SignInActivity, {
+            when (it) {
+                is Resource.Error -> {
+                    binding.loading.visibility = View.GONE
+                    Toast.makeText(
+                        this@SignInActivity,
+                        it.message ?: "Gagal Login",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                is Resource.Loading -> binding.loading.visibility = View.VISIBLE
+                is Resource.Success -> {
+                    binding.loading.visibility = View.GONE
+                    Toast.makeText(
+                        this@SignInActivity,
+                        getString(R.string.login_success),
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                    it.data?.let {login ->
+                        val account = Account(
+                            avatar = null,
+                            name = login.nama,
+                            phone = login.phone,
+                            email = login.email
+                        )
+                        viewModel.saveUserOnPreferences(account)
+                    }
+                }
+            }
+        })
     }
 
     private fun setupListener() {
@@ -39,37 +76,6 @@ class SignInActivity : AppCompatActivity() {
             login.setOnClickListener {
                 if (!inputEmail.isNullorEmpty() && !inputPassword.isNullorEmpty()) {
                     viewModel.login(inputEmail.text.toString(), inputPassword.text.toString())
-                        .observe(this@SignInActivity, {
-                            when (it) {
-                                is Resource.Error -> {
-                                    binding.loading.visibility = View.GONE
-                                    Toast.makeText(
-                                        this@SignInActivity,
-                                        it.message ?: "Gagal Login",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                }
-                                is Resource.Loading -> binding.loading.visibility = View.VISIBLE
-                                is Resource.Success -> {
-                                    binding.loading.visibility = View.GONE
-                                    Toast.makeText(
-                                        this@SignInActivity,
-                                        getString(R.string.login_success),
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-
-                                    it.data?.let {login ->
-                                        val account = Account(
-                                            avatar = null,
-                                            name = login.nama,
-                                            phone = login.phone,
-                                            email = login.email
-                                        )
-                                        viewModel.saveUserOnPreferences(account)
-                                    }
-                                }
-                            }
-                        })
                 }
             }
 

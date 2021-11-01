@@ -6,13 +6,13 @@ import android.widget.AutoCompleteTextView
 import com.example.ewss.R
 
 object StatusPatient {
-    fun Context.checkStatusColor(status: String): Int {
-        val listStatus = this.resources.getStringArray(R.array.status_patient)
+    fun checkStatusColor(status: String): Int {
         return when {
-            status.equals(listStatus[0], true) -> R.color.red
-            status.equals(listStatus[1], true) -> R.color.orange
-            status.equals(listStatus[2], true) -> R.color.yellow
-            else -> R.color.green
+            status.equals("1", true) -> R.color.green
+            status.equals("2", true) -> R.color.yellow
+            status.equals("3", true) -> R.color.orange
+            status.equals("4", true) -> R.color.red
+            else -> R.color.gray
         }
     }
 
