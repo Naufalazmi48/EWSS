@@ -21,10 +21,10 @@ interface ApiService {
         @Field("alamat") address: String,
         @Field("usia") age: Int,
         @Field("tingkat_kesadaran") kesadaran: String,
-        @Field("pernafasan") pernafasan: Int,
-        @Field("denyut_nadi") denyutNadi: Int,
-        @Field("tekanan_darah") tekananDarah: Int,
-        @Field("suhu") suhu: Int,
+        @Field("pernafasan") pernafasan: Double,
+        @Field("denyut_nadi") denyutNadi: Double,
+        @Field("tekanan_darah") tekananDarah: Double,
+        @Field("suhu") suhu: Double,
     ): DiagnosaResponse
 
     @GET("diagnosa/histories")

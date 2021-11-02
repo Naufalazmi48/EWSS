@@ -17,16 +17,16 @@ data class DataDiagnosa(
 	val usia: Int? = null,
 
 	@field:SerializedName("pernafasan")
-	val pernafasan: Int? = null,
+	val pernafasan: Double? = null,
 
 	@field:SerializedName("denyut_nadi")
-	val denyutNadi: Int? = null,
+	val denyutNadi: Double? = null,
 
 	@field:SerializedName("tingkat_kesadaran")
 	val tingkatKesadaran: String? = null,
 
 	@field:SerializedName("tekanan_darah")
-	val tekananDarah: Int? = null,
+	val tekananDarah: Double? = null,
 
 	@field:SerializedName("nama")
 	val nama: String? = null,
@@ -35,7 +35,7 @@ data class DataDiagnosa(
 	val updatedAt: String? = null,
 
 	@field:SerializedName("suhu")
-	val suhu: Int? = null,
+	val suhu: Double? = null,
 
 	@field:SerializedName("created_at")
 	val createdAt: String? = null,

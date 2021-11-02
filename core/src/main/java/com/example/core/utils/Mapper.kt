@@ -30,12 +30,12 @@ object Mapper {
         listDataHistoryDiagnosa.map {
             HistoryDiagnosa(
                 usia = it.usia ?: -1,
-                pernafasan = it.pernafasan ?: -1,
-                denyutNadi = it.denyutNadi ?: -1,
+                pernafasan = it.pernafasan ?: -1.0,
+                denyutNadi = it.denyutNadi ?: -1.0,
                 tingkatKesadaran = it.tingkatKesadaran ?: "-",
-                tekananDarah = it.tekananDarah ?: -1,
+                tekananDarah = it.tekananDarah ?: -1.0,
                 nama = it.nama ?: "-",
-                suhu = it.suhu ?: -1,
+                suhu = it.suhu ?: -1.0,
                 id = it.id ?: -1,
                 alamat = it.alamat ?: "-",
                 diagnosaResult = Diagnosa(result = it.hasil ?: "-", detailResult = it.keteranganHasil ?: "-")

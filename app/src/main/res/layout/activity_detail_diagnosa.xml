@@ -14,7 +14,7 @@
         <include
             android:id="@+id/diagnosa"
             layout="@layout/fragment_diagnosa"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView

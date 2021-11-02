@@ -86,10 +86,10 @@ class DiagnosaFragment : Fragment() {
                 address = inputAddress.text.toString(),
                 age = inputAge.text.toString().toInt(),
                 kesadaran = kesadaranAutocomplete.text.toString(),
-                denyutNadi = inputNadi.text.toString().toInt(),
-                suhu = inputSuhu.text.toString().toInt(),
-                pernafasan = inputPernafasan.text.toString().toInt(),
-                tekananDarah = inputTekananDarah.text.toString().toInt()
+                denyutNadi = inputNadi.text.toString().toDouble(),
+                suhu = inputSuhu.text.toString().toDouble(),
+                pernafasan = inputPernafasan.text.toString().toDouble(),
+                tekananDarah = inputTekananDarah.text.toString().toDouble()
             )
         }
     }

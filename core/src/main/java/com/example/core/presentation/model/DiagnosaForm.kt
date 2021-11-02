@@ -5,8 +5,8 @@ data class DiagnosaForm(
     val address: String,
     val age: Int,
     val kesadaran: String,
-    val pernafasan: Int,
-    val denyutNadi: Int,
-    val tekananDarah: Int,
-    val suhu: Int,
+    val pernafasan: Double,
+    val denyutNadi: Double,
+    val tekananDarah: Double,
+    val suhu: Double,
 )
