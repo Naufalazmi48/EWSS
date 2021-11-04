@@ -6,10 +6,10 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class HistoryDiagnosa(
     val usia: Int,
-    val pernafasan: Double,
-    val denyutNadi: Double,
+    val pernafasan: Int,
+    val denyutNadi: Int,
     val tingkatKesadaran: String,
-    val tekananDarah: Double,
+    val tekananDarah: Int,
     val nama: String,
     val suhu: Double,
     val id: Int,
