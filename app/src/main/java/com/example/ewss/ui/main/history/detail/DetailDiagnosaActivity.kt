@@ -56,7 +56,7 @@ class DetailDiagnosaActivity : AppCompatActivity() {
             if (diagnosaResult != null) {
                 status.text = getString(
                     R.string.status,
-                    resources.getStringArray(R.array.status_patient)[diagnosaResult.result.toInt() - 1]
+                    diagnosaResult.result
                 )
                 ketaranganHasil.text = getString(
                     R.string.keterangan_detail,

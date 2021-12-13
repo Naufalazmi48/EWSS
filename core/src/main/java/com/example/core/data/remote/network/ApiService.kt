@@ -14,7 +14,7 @@ interface ApiService {
     ): LoginResponse
 
     @FormUrlEncoded
-    @POST("diagnosa")
+    @POST("diagnosa/imperative")
     suspend fun diagnosa(
         @Header("Authorization") authToken: String,
         @Field("nama") fullname: String,

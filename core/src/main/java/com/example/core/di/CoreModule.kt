@@ -28,7 +28,7 @@ val networkModule = module {
     }
     single {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://ewss-app.herokuapp.com/api/")
+            .baseUrl("https://ewss-web.herokuapp.com/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(get())
             .build()

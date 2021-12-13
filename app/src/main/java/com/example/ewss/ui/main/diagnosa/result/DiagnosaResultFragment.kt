@@ -29,19 +29,19 @@ class DiagnosaResultFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val index = arguments?.getString(
+        val result = arguments?.getString(
             DATA_RESULT
         )
 
-        if (index != null) {
+        if (result != null) {
             with(binding) {
                 diagnosaResult.text = getString(
                     R.string.diagnosa_result,
-                    requireContext().resources.getStringArray(R.array.status_patient)[index.toInt() - 1]
+                    result
                 )
                 keterangan.setText(arguments?.getString(DATA_MESSAGE))
                 label.setColorFilter(ContextCompat.getColor(requireContext(),
-                    StatusPatient.checkStatusColor(index)
+                    StatusPatient.checkStatusColor(result)
                 ))
             }
         }

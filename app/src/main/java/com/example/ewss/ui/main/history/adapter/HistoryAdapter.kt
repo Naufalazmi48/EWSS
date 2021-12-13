@@ -40,7 +40,7 @@ class HistoryAdapter(private val context: Context) :
                     status.text =
                         context.getString(
                             R.string.status,
-                            context.resources.getStringArray(R.array.status_patient)[diagnosa.result.toInt() - 1]
+                            diagnosa.result
                         )
                     label.setColorFilter(ContextCompat.getColor(context, checkStatusColor(diagnosa.result)))
                 }
