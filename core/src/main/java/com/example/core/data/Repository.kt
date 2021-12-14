@@ -5,6 +5,7 @@ import com.example.core.data.remote.network.ApiResponse
 import com.example.core.domain.model.Diagnosa
 import com.example.core.domain.model.HistoryDiagnosa
 import com.example.core.domain.model.Login
+import com.example.core.domain.model.Register
 import com.example.core.domain.repository.IRepository
 import com.example.core.presentation.model.DiagnosaForm
 import com.example.core.utils.Mapper.mapDiagnosaResponseToDomain
@@ -35,6 +36,17 @@ class Repository(private val remoteDataSource: RemoteDataSource) : IRepository {
             }
         }
     }.flowOn(Dispatchers.IO)
+
+    override suspend fun register(register: Register): Flow<Resource<Boolean>> = flow {
+        emit(Resource.Loading())
+        remoteDataSource.register(register).collect {
+            when(it) {
+                is ApiResponse.Empty -> emit(Resource.Error<Boolean>(message = "Failed register user"))
+                is ApiResponse.Error -> emit(Resource.Error<Boolean>(message = "Failed register user"))
+                is ApiResponse.Success -> emit(Resource.Success(true))
+            }
+        }
+    }
 
     override suspend fun diagnosa(diagnosaForm: DiagnosaForm): Flow<Resource<Diagnosa>> = flow {
         emit(Resource.Loading())

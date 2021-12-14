@@ -33,7 +33,6 @@ class SignInActivity : AppCompatActivity() {
                     .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
             }
         })
-        viewModel.login(getString(R.string.dummy_email), getString(R.string.dummy_password))
         setContentView(binding.root)
     }
 
@@ -96,7 +95,7 @@ class SignInActivity : AppCompatActivity() {
             return false
         }
         when (id) {
-            R.id.input_username -> binding.email.error =
+            R.id.input_email -> binding.email.error =
                 getString(R.string.column_must_be_filled)
             R.id.input_password -> binding.password.error =
                 getString(R.string.column_must_be_filled)

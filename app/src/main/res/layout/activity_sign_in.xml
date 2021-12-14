@@ -133,7 +133,6 @@
         android:layout_marginTop="8dp"
         android:paddingHorizontal="48dp"
         android:text="@string/register"
-        android:visibility="gone"
         android:textColor="@color/primary"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

@@ -5,6 +5,7 @@ import com.example.core.data.preferences.UserPreferences
 import com.example.core.data.remote.network.ApiResponse
 import com.example.core.data.remote.network.ApiService
 import com.example.core.data.remote.response.*
+import com.example.core.domain.model.Register
 import com.example.core.presentation.model.DiagnosaForm
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
@@ -75,6 +76,28 @@ class RemoteDataSource(private val apiService: ApiService, private val prefs: Us
                         if (it != null) list.add(it)
                     }
                     emit(ApiResponse.Success(list))
+                }
+            } catch (e: Exception) {
+                emit(ApiResponse.Error(e.toString()))
+                Log.e(javaClass.name, e.toString())
+            }
+        }
+
+    suspend fun register(register: Register): Flow<ApiResponse<DataRegister>> =
+        flow {
+            try {
+                    val result = apiService.register(
+                        name = register.name,
+                        email = register.email,
+                        phone = register.phone,
+                        country = register.country,
+                        city = register.city,
+                        password = register.password,
+                        passwordConfirmation = register.passwordConfirmation
+                    )
+                if (result.data == null) emit(ApiResponse.Empty)
+                else {
+                    emit(ApiResponse.Success(result.data))
                 }
             } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))

@@ -2,7 +2,7 @@
     <string name="app_name">EWSS</string>
     <string name="sign_in">Sign In</string>
     <string name="password">Password</string>
-    <string name="username">Username</string>
+    <string name="country">Country</string>
     <string name="login">Login</string>
     <string name="not_have_account">Belum memiliki akun?</string>
     <string name="register">Register</string>
@@ -10,7 +10,7 @@
     <string name="fullname">Fullname</string>
     <string name="email">Email</string>
     <string name="number_phone">Number Phone</string>
-    <string name="address">Address</string>
+    <string name="city">City</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="forgot_password">Forgot password?</string>
     <string name="forgot_password_activity">Forgot password</string>
@@ -48,8 +48,7 @@
     <string name="status">Status: %1$s</string>
     <string name="keterangan_detail">Keterangan: %1$s</string>
     <string name="tingkat_kegawatan">Tingkat Kegawatan</string>
-    <string name="dummy_email">admin@gmail.com</string>
-    <string name="dummy_password">admin</string>
+    <string name="address">Alamat</string>
 
     <string-array name="status_kesadaran">
         <item>coma</item>

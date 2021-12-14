@@ -3,6 +3,7 @@ package com.example.core.data.remote.network
 import com.example.core.data.remote.response.DiagnosaResponse
 import com.example.core.data.remote.response.HistoryDiagnosaResponse
 import com.example.core.data.remote.response.LoginResponse
+import com.example.core.data.remote.response.RegisterResponse
 import retrofit2.http.*
 
 interface ApiService {
@@ -12,6 +13,18 @@ interface ApiService {
         @Field("email") email: String,
         @Field("password") password: String
     ): LoginResponse
+
+    @FormUrlEncoded
+    @POST("register")
+    suspend fun register(
+        @Field("nama") name: String,
+        @Field("email") email: String,
+        @Field("phone") phone: String,
+        @Field("country") country: String,
+        @Field("city") city: String,
+        @Field("password") password: String,
+        @Field("password_confirmation") passwordConfirmation: String,
+    ): RegisterResponse
 
     @FormUrlEncoded
     @POST("diagnosa/imperative")
