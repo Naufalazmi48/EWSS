@@ -8,7 +8,6 @@ data class HistoryDiagnosa(
     val usia: Int,
     val pernafasan: Int,
     val denyutNadi: Int,
-    val tingkatKesadaran: String,
     val tekananDarah: Int,
     val nama: String,
     val suhu: Double,

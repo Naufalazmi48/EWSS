@@ -42,7 +42,6 @@ class RemoteDataSource(private val apiService: ApiService, private val prefs: Us
                     fullname = diagnosaForm.fullname,
                     address = diagnosaForm.address,
                     age = diagnosaForm.age,
-                    kesadaran = diagnosaForm.kesadaran,
                     pernafasan = diagnosaForm.pernafasan,
                     denyutNadi = diagnosaForm.denyutNadi,
                     tekananDarah = diagnosaForm.tekananDarah,

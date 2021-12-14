@@ -27,20 +27,19 @@ interface ApiService {
     ): RegisterResponse
 
     @FormUrlEncoded
-    @POST("diagnosa/imperative")
+    @POST("diagnosa/machinelearning")
     suspend fun diagnosa(
         @Header("Authorization") authToken: String,
         @Field("nama") fullname: String,
         @Field("alamat") address: String,
         @Field("usia") age: Int,
-        @Field("tingkat_kesadaran") kesadaran: String,
         @Field("pernafasan") pernafasan: Int,
         @Field("denyut_nadi") denyutNadi: Int,
         @Field("tekanan_darah") tekananDarah: Int,
         @Field("suhu") suhu: Double,
     ): DiagnosaResponse
 
-    @GET("diagnosa/histories")
+    @GET("diagnosa/machinelearning/histories")
     suspend fun historyDiagnosa(
         @Header("Authorization") authToken: String,
     ): HistoryDiagnosaResponse

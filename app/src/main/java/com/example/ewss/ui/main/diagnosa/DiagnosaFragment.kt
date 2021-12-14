@@ -10,7 +10,6 @@ import com.example.core.data.Resource
 import com.example.core.presentation.model.DiagnosaForm
 import com.example.ewss.databinding.FragmentDiagnosaBinding
 import com.example.ewss.ui.main.diagnosa.result.DiagnosaResultFragment
-import com.example.ewss.utils.StatusPatient.setKesadaranAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DiagnosaFragment : Fragment() {
@@ -31,12 +30,7 @@ class DiagnosaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         setupListener()
-        setupAdapter()
         super.onViewCreated(view, savedInstanceState)
-    }
-
-    private fun setupAdapter() {
-        requireContext().setKesadaranAdapter(binding.kesadaranAutocomplete)
     }
 
     private fun setupListener() {
@@ -71,7 +65,6 @@ class DiagnosaFragment : Fragment() {
             inputFullname.setText("")
             inputAge.setText("")
             inputAddress.setText("")
-            kesadaranAutocomplete.setText("")
             inputSuhu.setText("")
             inputTekananDarah.setText("")
             inputPernafasan.setText("")
@@ -85,7 +78,6 @@ class DiagnosaFragment : Fragment() {
                 fullname = inputFullname.text.toString(),
                 address = inputAddress.text.toString(),
                 age = inputAge.text.toString().toInt(),
-                kesadaran = kesadaranAutocomplete.text.toString(),
                 denyutNadi = inputNadi.text.toString().toInt(),
                 suhu = inputSuhu.text.toString().toDouble(),
                 pernafasan = inputPernafasan.text.toString().toInt(),

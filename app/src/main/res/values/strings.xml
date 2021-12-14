@@ -49,13 +49,4 @@
     <string name="keterangan_detail">Keterangan: %1$s</string>
     <string name="tingkat_kegawatan">Tingkat Kegawatan</string>
     <string name="address">Alamat</string>
-
-    <string-array name="status_kesadaran">
-        <item>coma</item>
-        <item>stupor</item>
-        <item>somnolen</item>
-        <item>cpmposmentis</item>
-        <item>apatis</item>
-        <item>delirium</item>
-    </string-array>
 </resources>

@@ -30,7 +30,6 @@ class DetailDiagnosaActivity : AppCompatActivity() {
             fullname.isEnabled = false
             address.isEnabled = false
             age.isEnabled = false
-            kesadaran.isEnabled = false
             pernafasan.isEnabled = false
             nadi.isEnabled = false
             tekananDarah.isEnabled = false
@@ -44,7 +43,6 @@ class DetailDiagnosaActivity : AppCompatActivity() {
             inputFullname.setText(diagnosaHistory.nama)
             inputAddress.setText(diagnosaHistory.alamat)
             inputAge.setText(diagnosaHistory.usia.toString())
-            kesadaranAutocomplete.setText(diagnosaHistory.tingkatKesadaran)
             inputPernafasan.setText(diagnosaHistory.pernafasan.toString())
             inputNadi.setText(diagnosaHistory.denyutNadi.toString())
             inputTekananDarah.setText(diagnosaHistory.tekananDarah.toString())

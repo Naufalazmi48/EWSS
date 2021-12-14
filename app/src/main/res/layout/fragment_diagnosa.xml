@@ -68,37 +68,15 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/kesadaran"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="@string/kesadaran"
-            app:endIconMode="dropdown_menu"
-            app:layout_constraintLeft_toLeftOf="@id/age"
-            app:layout_constraintRight_toRightOf="@id/age"
-            app:layout_constraintTop_toBottomOf="@id/age"
-            tools:ignore="RtlSymmetry">
-
-            <AutoCompleteTextView
-                android:id="@+id/kesadaran_autocomplete"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="none"
-                android:paddingStart="12dp"
-                tools:ignore="LabelFor" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/pernafasan"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:hint="@string/pernafasan_menit"
-            app:layout_constraintLeft_toLeftOf="@id/kesadaran"
-            app:layout_constraintRight_toRightOf="@id/kesadaran"
-            app:layout_constraintTop_toBottomOf="@id/kesadaran"
+            app:layout_constraintLeft_toLeftOf="@id/age"
+            app:layout_constraintRight_toRightOf="@id/age"
+            app:layout_constraintTop_toBottomOf="@id/age"
             app:suffixText="/ menit">
 
             <com.google.android.material.textfield.TextInputEditText
