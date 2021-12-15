@@ -2,9 +2,11 @@ package com.example.core.utils
 
 import com.example.core.data.remote.response.DataDiagnosa
 import com.example.core.data.remote.response.DataLogin
+import com.example.core.data.remote.response.DataStatistic
 import com.example.core.domain.model.Diagnosa
 import com.example.core.domain.model.HistoryDiagnosa
 import com.example.core.domain.model.Login
+import com.example.core.domain.model.StatisticPatient
 
 object Mapper {
     fun mapLoginResponseToDomain(dataLogin: DataLogin): Login =
@@ -41,4 +43,13 @@ object Mapper {
                 diagnosaResult = Diagnosa(result = it.hasil ?: "-", detailResult = it.keteranganHasil ?: "-")
             )
         }
+
+    fun mapStatisticResponseToDomain(dataStatistic: DataStatistic): StatisticPatient =
+        StatisticPatient(
+            total = dataStatistic.total ?: 0,
+            waspada = dataStatistic.waspada ?: 0,
+            hatiHati = dataStatistic.hatiHati ?: 0,
+            stabil = dataStatistic.stabil ?: 0,
+            berbahaya = dataStatistic.berbahaya ?: 0
+        )
 }

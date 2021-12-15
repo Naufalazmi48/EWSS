@@ -13,7 +13,7 @@ class SignInViewModel(private val repository: IRepository, private val prefs: Us
     ViewModel() {
 
     private val _login = MutableLiveData<Resource<Login>>()
-    val loginObserver:LiveData<Resource<Login>> = _login
+    val login:LiveData<Resource<Login>> = _login
 
     fun login(email: String, password: String) {
         viewModelScope.launch {

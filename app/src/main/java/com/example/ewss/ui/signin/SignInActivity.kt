@@ -33,11 +33,12 @@ class SignInActivity : AppCompatActivity() {
                     .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
             }
         })
+        viewModel.login(getString(R.string.dummy_email), getString(R.string.dummy_password))
         setContentView(binding.root)
     }
 
     private fun setupObserver() {
-        viewModel.loginObserver.observe(this@SignInActivity, {
+        viewModel.login.observe(this@SignInActivity, {
             when (it) {
                 is Resource.Error -> {
                     binding.loading.visibility = View.GONE
@@ -50,11 +51,6 @@ class SignInActivity : AppCompatActivity() {
                 is Resource.Loading -> binding.loading.visibility = View.VISIBLE
                 is Resource.Success -> {
                     binding.loading.visibility = View.GONE
-                    Toast.makeText(
-                        this@SignInActivity,
-                        getString(R.string.login_success),
-                        Toast.LENGTH_SHORT
-                    ).show()
 
                     it.data?.let {login ->
                         val account = Account(
