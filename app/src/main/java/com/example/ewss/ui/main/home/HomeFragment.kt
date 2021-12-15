@@ -74,10 +74,10 @@ class HomeFragment : Fragment() {
     private fun setData(statisticPatient: StatisticPatient) {
 
         val maxValue = statisticPatient.total
-        val percentageStabil = (statisticPatient.stabil / maxValue) * 100
-        val percentageWarning = (statisticPatient.hatiHati / maxValue) * 100
-        val percentageAlert = (statisticPatient.waspada / maxValue) * 100
-        val percentageDanger = (statisticPatient.berbahaya / maxValue) * 100
+        val percentageStabil = (statisticPatient.stabil * 100) / maxValue
+        val percentageWarning = (statisticPatient.hatiHati * 100) / maxValue
+        val percentageAlert = (statisticPatient.waspada * 100) / maxValue
+        val percentageDanger = (statisticPatient.berbahaya * 100) / maxValue
 
         with(binding.statisticPatient){
 
