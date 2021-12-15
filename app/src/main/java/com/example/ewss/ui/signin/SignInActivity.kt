@@ -33,7 +33,6 @@ class SignInActivity : AppCompatActivity() {
                     .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
             }
         })
-        viewModel.login(getString(R.string.dummy_email), getString(R.string.dummy_password))
         setContentView(binding.root)
     }
 

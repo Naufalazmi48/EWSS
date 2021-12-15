@@ -49,4 +49,8 @@
     <string name="keterangan_detail">Keterangan: %1$s</string>
     <string name="tingkat_kegawatan">Tingkat Kegawatan</string>
     <string name="address">Alamat</string>
+    <string name="stabil">Stabil (%1$s\%%)</string>
+    <string name="hati_hati">Hati-Hati (%1$s\%%)</string>
+    <string name="waspada">Waspada (%1$s\%%)</string>
+    <string name="berbahaya">Berbahaya (%1$s\%%)</string>
 </resources>
