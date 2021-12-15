@@ -11,7 +11,7 @@
         android:id="@+id/sistem_pakar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SISTEM PAKAR\nDIAGNOSIS COVID-19"
+        android:text="EARLY WARNING SYSTEM\nDIAGNOSIS COVID-19"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:textAlignment="center"
