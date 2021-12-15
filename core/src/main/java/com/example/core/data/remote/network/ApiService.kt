@@ -1,9 +1,6 @@
 package com.example.core.data.remote.network
 
-import com.example.core.data.remote.response.DiagnosaResponse
-import com.example.core.data.remote.response.HistoryDiagnosaResponse
-import com.example.core.data.remote.response.LoginResponse
-import com.example.core.data.remote.response.RegisterResponse
+import com.example.core.data.remote.response.*
 import retrofit2.http.*
 
 interface ApiService {
@@ -43,4 +40,9 @@ interface ApiService {
     suspend fun historyDiagnosa(
         @Header("Authorization") authToken: String,
     ): HistoryDiagnosaResponse
+
+    @GET("diagnosa/statistik")
+    suspend fun statisticPatient(
+        @Header("Authorization") authToken: String,
+    ): StatisticResponse
 }

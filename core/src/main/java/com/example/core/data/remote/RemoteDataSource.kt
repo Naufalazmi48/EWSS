@@ -70,12 +70,26 @@ class RemoteDataSource(private val apiService: ApiService, private val prefs: Us
                 val result = apiService.historyDiagnosa("Bearer $authToken")
                 if (result.data.isNullOrEmpty()) emit(ApiResponse.Empty)
                 else {
-                    val list = arrayListOf<DataDiagnosa>()
-                    result.data.forEach {
-                        if (it != null) list.add(it)
-                    }
-                    emit(ApiResponse.Success(list))
+                    emit(ApiResponse.Success(result.data.filterNotNull()))
                 }
+            } catch (e: Exception) {
+                emit(ApiResponse.Error(e.toString()))
+                Log.e(javaClass.name, e.toString())
+            }
+        }
+
+    suspend fun statisticPatient(): Flow<ApiResponse<DataStatistic>> =
+        flow {
+            try {
+                val authToken: String? = prefs.getApiKey().first()
+
+                if (authToken.isNullOrEmpty()) {
+                    emit(ApiResponse.Error("You need auth token to do this request"))
+                    return@flow
+                }
+
+                val result = apiService.statisticPatient("Bearer $authToken")
+                result.data?.let { emit(ApiResponse.Success(it)) }
             } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))
                 Log.e(javaClass.name, e.toString())

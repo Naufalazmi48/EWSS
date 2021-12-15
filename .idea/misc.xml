@@ -7,9 +7,10 @@
         <entry key="..\:/Android/EWSS/app/src/main/res/drawable/container_fragment.xml" value="0.2203125" />
         <entry key="..\:/Android/EWSS/app/src/main/res/drawable/container_login.xml" value="0.2203125" />
         <entry key="..\:/Android/EWSS/app/src/main/res/drawable/containerr_fragment.xml" value="0.2203125" />
+        <entry key="..\:/Android/EWSS/app/src/main/res/drawable/ic_profile.xml" value="0.33046875" />
         <entry key="..\:/Android/EWSS/app/src/main/res/layout/activity_detail_diagnosa.xml" value="0.33" />
         <entry key="..\:/Android/EWSS/app/src/main/res/layout/activity_forgot_password.xml" value="0.33" />
-        <entry key="..\:/Android/EWSS/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Android/EWSS/app/src/main/res/layout/activity_main.xml" value="0.5816023738872403" />
         <entry key="..\:/Android/EWSS/app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="..\:/Android/EWSS/app/src/main/res/layout/activity_sign_in.xml" value="0.20416666666666666" />
         <entry key="..\:/Android/EWSS/app/src/main/res/layout/form_input_diagnosa.xml" value="0.22" />
@@ -21,6 +22,7 @@
         <entry key="..\:/Android/EWSS/app/src/main/res/layout/fragment_storage.xml" value="0.33" />
         <entry key="..\:/Android/EWSS/app/src/main/res/layout/item_history.xml" value="0.22" />
         <entry key="..\:/Android/EWSS/app/src/main/res/layout/item_storage.xml" value="0.33" />
+        <entry key="..\:/Android/EWSS/app/src/main/res/layout/statistic_patient.xml" value="0.5" />
         <entry key="..\:/Android/EWSS/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20416666666666666" />
       </map>
     </option>
